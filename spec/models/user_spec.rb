@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) { User.new(name: "Jovanny", email: "jovannypcg@yahoo.com") }
+  subject(:user) { User.new(name: "Jovanny",
+    email: "jovannypcg@yahoo.com",
+    password: "foobar",
+    password_confirmation: "foobar") }
 
   it 'should be valid' do
     is_expected.to be_valid
@@ -18,7 +21,10 @@ RSpec.describe User, type: :model do
   it 'should save email as lowercase' do
     mixed_case_email = "Foo@ExAMPle.CoM"
 
-    user = User.new(name: "Pablo")
+    user = User.new(name: "Pablo",
+      password: "foobar",
+      password_confirmation: "foobar")
+
     user.email = mixed_case_email
     user.save
 
